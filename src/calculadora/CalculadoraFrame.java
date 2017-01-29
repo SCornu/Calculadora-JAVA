@@ -55,6 +55,7 @@ public class CalculadoraFrame extends javax.swing.JFrame {
         setResizable(false);
 
         jTextField1.setEditable(false);
+        jTextField1.setColumns(8);
         jTextField1.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
         jTextField1.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         jTextField1.setText("0");
@@ -63,7 +64,7 @@ public class CalculadoraFrame extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTextField1)
+            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -143,6 +144,11 @@ public class CalculadoraFrame extends javax.swing.JFrame {
         });
 
         jButton13.setText(".");
+        jButton13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton13ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -388,6 +394,18 @@ public class CalculadoraFrame extends javax.swing.JFrame {
             jTextField1.setText(num+0);
         }
     }//GEN-LAST:event_jButton12ActionPerformed
+
+    private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
+        // TODO add your handling code here:
+        String num = jTextField1.getText();
+        if(num.contains(".")){
+            System.out.print("tiene punto decimal");
+        }else{
+            System.out.print("no contiene punto decimal");
+            jTextField1.setText(num+".");
+            jButton13.setEnabled(false);
+        }
+    }//GEN-LAST:event_jButton13ActionPerformed
 
     /**
      * @param args the command line arguments
